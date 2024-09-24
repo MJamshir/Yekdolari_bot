@@ -6,14 +6,13 @@ from telethon.tl.types import KeyboardButtonCallback
 # اطلاعات API و شماره تلفن (برای کاربر شخصی)
 api_id = 22987403
 api_hash = '0a0b2c4093ddee4dcdb84895c591365d'
-phone_number = '+905013513954'
+
+# سشن ذخیره شده (رشته سشن که قبلاً تولید شده)
+user_session_string = 'your_user_session_string_here'
+bot_session_string = 'your_bot_session_string_here'
 
 # توکن ربات (برای ارسال پیام)
 bot_token = '7533266828:AAEERKEbeldNTaoqKV3QfCTrvPmsBtpop6Q'
-
-# ذخیره‌سازی جلسه به صورت رشته‌ای
-user_session_string = None
-bot_session_string = None
 
 # کانال‌ها
 source_channels = {
@@ -42,14 +41,17 @@ async def get_last_message_with_number(client, channel):
     return None
 
 async def main():
+    # ساخت کلاینت‌های تلگرام با استفاده از سشن‌ها
     user_client = TelegramClient(StringSession(user_session_string), api_id, api_hash)
     bot_client = TelegramClient(StringSession(bot_session_string), api_id, api_hash)
 
-    await user_client.start(phone_number)
+    # شروع کلاینت‌ها
+    await user_client.start()
     await bot_client.start(bot_token=bot_token)
 
     last_message_id = None
 
+    # هندل کردن پیام /start
     @bot_client.on(events.NewMessage(pattern='/start'))
     async def handler(event):
         buttons = [
@@ -57,6 +59,7 @@ async def main():
         ]
         await bot_client.send_message(destination_channel, "برای دیدن بروزترین قیمت‌ها، یکی از گزینه‌های زیر را انتخاب کنید:", buttons=buttons)
 
+    # هندل کردن کلیدهای فراخوانی شده (CallbackQuery)
     @bot_client.on(events.CallbackQuery)
     async def callback(event):
         nonlocal last_message_id
