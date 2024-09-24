@@ -8,7 +8,7 @@ api_id = 22987403
 api_hash = '0a0b2c4093ddee4dcdb84895c591365d'
 
 # سشن ذخیره شده (رشته سشن که قبلاً تولید شده)
-user_session_string = 'your_user_session_string_here'
+user_session_string = '1BJWap1sBuxqnj3jRJpzjOKuFsM1dHLYIIlYUt9RXDU0a7o-FHDnXP3bvFM866I6TDjyC7KMUx-dElTKcSyikXFWVL8aSYkQd8gNQSGfDXKuzfsplZ-EcfNLeCMJ-Qm5zefJDD1KsAF_2Rfi50vNW-NnDnpv3TH9jtJWzYCMFuWdRXwdJq5lMFfWsU0Gl2fh1XggI12wpDbPj6VjiZCV36uGq_7L5cB29ZRvZSt983dLdqufNnjbK0HxwnmQTqJAwrAAsnJXLm8ugHK4xPdppFoUUFuMgRAFgzWFCrZnSOdWT8XUhtpG6RLWn1AINIxMy19iQ9U8TUZGYuxTgEUbSTZ_8n5jacpQ='
 bot_session_string = 'your_bot_session_string_here'
 
 # توکن ربات (برای ارسال پیام)
